@@ -201,6 +201,44 @@ footer p { margin:0 0 6px; max-width:62ch; }
   text-transform:uppercase; color:var(--ink-3); margin-top:8px;
 }
 
+
+.pill.res {
+  background:#f3dfbe; color:#7a4a12;
+}
+:root:not([data-theme="light"]) .pill.res { background:#4a3312; color:#f0cf9a; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .pill.res { background:#f3dfbe; color:#7a4a12; } }
+:root[data-theme="dark"] .pill.res { background:#4a3312; color:#f0cf9a; }
+
+.status {
+  margin-top:24px; border:1px solid var(--line); border-radius:3px;
+  background:var(--panel); padding:16px 18px;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:16px 28px;
+}
+.status > div { min-width:0; }
+.status h3 {
+  margin:0 0 7px; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+  display:flex; align-items:center; gap:7px;
+}
+.status h3 i { width:9px; height:9px; border-radius:2px; flex:none; }
+.status h3 .free i { background:var(--ink-3); }
+.status .dot-free { background:#4a9b6e; } .status .dot-res { background:#c98a2b; }
+.status .dot-sold { background:#9aa6ae; }
+.status ul { margin:0; padding:0; list-style:none; font-size:13.5px; line-height:1.55; }
+.status li { overflow-wrap:anywhere; }
+.status li b {
+  font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:11.5px;
+  color:var(--ink-3); margin-right:6px;
+}
+.status .big {
+  font-family:"IBM Plex Mono",monospace; font-size:30px; font-weight:600; line-height:1.1;
+}
+.status .big span { font-size:13px; font-weight:400; color:var(--ink-3); margin-left:6px; }
+.status li.sold { color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px; }
+.ski.reserved {
+  border-inline-start:3px solid #c98a2b; padding-inline-start:15px;
+}
+.ski.reserved .spec.price .v { opacity:.55; }
 </style>
 </head>
 <body>
@@ -220,11 +258,26 @@ footer p { margin:0 0 6px; max-width:62ch; }
       <figcaption>Numerot 1–18 vastaavat alla olevaa järjestystä · numerot 5 (Speedmax 939) ja 12 (Hiidensalo 787) on myyty · 3D Double Sprint AH2 ei ole kuvassa</figcaption>
     </figure>
     <div class="facts">
-      <span class="fact"><b>17</b><span>paria</span></span>
+      <span class="fact"><b>17</b><span>paria listattu</span></span>
       <span class="fact"><b>10</b><span>perinteinen</span></span>
       <span class="fact"><b>6</b><span>luistelu</span></span>
       <span class="fact"><b>1</b><span>tasatyöntö</span></span>
     </div>
+
+    <section class="status" aria-label="Myyntitilanne">
+      <div>
+        <h3><i class="dot-free"></i>Vapaana</h3>
+        <p class="big">15<span>paria</span></p>
+      </div>
+      <div>
+        <h3><i class="dot-res"></i>Varattu</h3>
+        <ul><li class=""><b>7</b>Fischer Carbonlite Waltteri 624</li><li class=""><b>–</b>Fischer Speedmax 3D Double Sprint AH2</li></ul>
+      </div>
+      <div>
+        <h3><i class="dot-sold"></i>Myyty</h3>
+        <ul><li class="sold"><b>5</b>Fischer Speedmax 939</li><li class="sold"><b>12</b>Fischer Speedmax 3D Hiidensalo 787</li></ul>
+      </div>
+    </section>
   </header>
 
   <main class="list">
@@ -304,11 +357,11 @@ footer p { margin:0 0 6px; max-width:62ch; }
     <div class="logwrap"><table class="log"><caption>Hiihdetyt kisat</caption><thead><tr><th>Päivä</th><th>Hiihtäjä</th><th>Kisa</th><th>Kelialue</th><th>Sij.</th></tr></thead><tbody><tr><td class="c-date">16.12.2022</td><td class="c-who">Henrik</td><td class="c-race">Ristijärvi<span class="place">Ristijärvi / Saukkovaara</span></td><td class="c-zone"><span class="zone z-vihrea" title="Vihreä Pakkanen ja Vitikeli (-&gt; -8 .. -18°C)"><i></i>Vitikeli</span></td><td class="c-res">1.</td></tr><tr><td class="c-date">5.2.2023</td><td class="c-who">Henrik</td><td class="c-race">Minisalpausselkä<span class="place">Lahden hiihtostadioni</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: MiniSalpausselkä-hiihdot (P), M14">2.<span class="field">/24</span></td></tr></tbody></table></div>
   </div>
 </article>
-<article class="ski" data-brand="Fischer" data-model="Carbonlite" data-style="P" data-fa="45" data-races="3" data-name="fischer carbonlite waltteri 624" id="suksi-9">
+<article class="ski reserved" data-brand="Fischer" data-model="Carbonlite" data-style="P" data-fa="45" data-races="3" data-name="fischer carbonlite waltteri 624" id="suksi-9">
   <div class="body">
     <header class="head">
       <h2><span class="num">7</span>Fischer Carbonlite Waltteri 624</h2>
-      <span class="pill p-p">Perinteinen</span>
+      <span class="pill p-p">Perinteinen</span><span class="pill res">Varattu</span>
     </header>
     
     <div class="specs">
@@ -476,11 +529,11 @@ footer p { margin:0 0 6px; max-width:62ch; }
     <div class="logwrap"><table class="log"><caption>Hiihdetyt kisat</caption><thead><tr><th>Päivä</th><th>Hiihtäjä</th><th>Kisa</th><th>Kelialue</th><th>Sij.</th></tr></thead><tbody><tr><td class="c-date">16.12.2022</td><td class="c-who">Rasmus</td><td class="c-race">Ristijärvi<span class="place">Ristijärvi / Saukkovaara</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: FIS Härkösten hiihdot, sprintti (P), M20">16.<span class="field">/24</span></td></tr><tr><td class="c-date">1.1.2023</td><td class="c-who">Rasmus</td><td class="c-race">Pyhäjoki<span class="place">Honkavuori</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: FIS 57. Honkavuoren hiihdot (V), M20">19.<span class="field">/23</span></td></tr><tr><td class="c-date">12.3.2023</td><td class="c-who">Rasmus</td><td class="c-race">NSM-Valkeakoski<span class="place">Korkeakangas</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: NSM Valkeakoski (V), M20">26.<span class="field">/59</span></td></tr><tr><td class="c-date">18.2.2024</td><td class="c-who">Rasmus</td><td class="c-race">Timanttiset Ryskehiihdot<span class="place">Tammela</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: Timanttiset Ryske hiihdot (V), MYL">12.<span class="field">/14</span></td></tr><tr><td class="c-date">9.3.2024</td><td class="c-who">Rasmus</td><td class="c-race">Jyväskylä Ski Marathon<span class="place">Jyväskylä</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: FIS Jyväskylä Ski Marathon, MYL5P">17.<span class="field">/86</span></td></tr><tr><td class="c-date">1.2.2025</td><td class="c-who">Henrik</td><td class="c-race">Custom Ski hiihdot<span class="place">Heinsuo</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res" title="Tulosarkisto: Hollolan CustomSki-hiihdot (V), M16">1.<span class="field">/17</span></td></tr><tr><td class="c-date">4.1.2026</td><td class="c-who">Rasmus</td><td class="c-race">Scandinavian cup<span class="place">Hakunila</span></td><td class="c-zone"><span class="zone z-sininen" title="Sininen Pikkupakkanen (-&gt; - 1 .. -8°C)"><i></i>Pakkaskeli</span></td><td class="c-res">152.</td></tr></tbody></table></div>
   </div>
 </article>
-<article class="ski" data-brand="Fischer" data-model="3D Double" data-style="TT" data-fa="62" data-races="0" data-name="fischer 3d double sprint ah2" id="suksi-20">
+<article class="ski reserved" data-brand="Fischer" data-model="3D Double" data-style="TT" data-fa="62" data-races="0" data-name="fischer 3d double sprint ah2" id="suksi-20">
   <div class="body">
     <header class="head">
       <h2><span class="num">—</span>Fischer Speedmax 3D Double Sprint AH2</h2><span class="nokuva">ei ryhmäkuvassa</span>
-      <span class="pill p-tt">Tasatyöntö</span>
+      <span class="pill p-tt">Tasatyöntö</span><span class="pill res">Varattu</span>
     </header>
     <p class="meta"><span><b>Sarjanumero</b> 191 23044712928 060</span></p>
     <div class="specs">
